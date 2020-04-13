@@ -2,67 +2,37 @@
 <html>
 <head>
     <link rel="stylesheet" href="led_editor_styles.css">
+s	<script type="text/javascript" src= "led_editor_2020APR.js" ></script>
 </head>
-<body>
+
+<body onload="init()" >
 
 <h1>LED Display Editor</h1>
-<p>Rev. 2020MAR18b</p>
+<p>HTML Rev. 2020APR12c</p>
+<div id="script_version">Javascript Rev. </div>
 
 <p>LED editor test.</p>
-<input type="radio" id="green" name="color_select" value="green">
-<label for="green">Green</label><br>
-<input type="radio" id="yellow" name="color_select" value="yellow">
-<label for="yellow">Yellow</label><br>
-<input type="radio" id="black" name="color_select" value="black">
-<label for="black">Black</label>
+<input type="submit" value="Clear" onclick="clearCanvas(canvas);">
+<div id="color_picked">Color</div>
 
-<canvas id="sketchpad" width="210" height="160"></canvas>
+<canvas id="sketchpad" width="200" height="160"></canvas>
+
+<input type="radio" id="Green" name="color_select" value="Green" checked> Green<br>
+<input type="radio" id="Blue" name="color_select" value="Blue"> Blue<br>
+<input type="radio" id="Red" name="color_select" value="Red"> Red<br>
+<input type="radio" id="Purple" name="color_select" value="Purple"> Purple<br>
+<input type="radio" id="White" name="color_select" value="White"> White<br>
+<input type="radio" id="Yellow" name="color_select" value="Yellow"> Yellow<br>
+<input type="radio" id="Puke" name="color_select" value="Puke"> Puke<br>
+<input type="radio" id="Black" name="color_select" value="Black"> Black<br>
+<input type="submit" value="Generate" onclick="generate();">
 
 <textarea id="text_out" rows="30" cols="80">
 </textarea>
 
-<script type="text/javascript" src="led_editor_2020APR.js"></script>
 
-<style>
-/* Some CSS styling */
-#sketchpadapp {
-    /* Prevent nearby text being highlighted when accidentally dragging mouse outside confines of the canvas */
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-.leftside {
-    float:left;
-    width:200px;
-    height:285px;
-    background-color:#def;
-    padding:10px;
-    border-radius:4px;
-}
-.rightside {
-    float:left;
-    margin-left:10px;
-}
-#sketchpad {
-    float:left;
-    border:2px solid #888;
-    border-radius:4px;
-    position:relative; /* Necessary for correct mouse co-ords in Firefox */
-}
-</style>
-</head>
-
-<body onload="init()">
     <div id="sketchpadapp">
         <div class="leftside">
-             Simple mouse-based HTML5 canvas sketchpad.<br/><br/>
-             Draw something by holding down the mouse button or using single clicks.<br/><br/>
-             On a touchscreen, tapping the area will register as a single mouse click.<br/><br/>
-
-             <input type="submit" value="Clear Sketchpad" onclick="clearCanvas(canvas,ctx);">
         </div>
         <!--
         <div class="rightside">
